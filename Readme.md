@@ -123,7 +123,7 @@ python main.py --eval --load-model-step 50000
 * `--load-model-step`: Load model at a specific training step.
 * `--eval-episodes`: Number of evaluation episodes (default: 1).
 
-During evaluation, the environment will render the agent's behavior for visualization.
+During evaluation, the environment will render the agent's behavior for visualization. The inference results will be saved as GIF files in the `figures` directory.
 
 ---
 
