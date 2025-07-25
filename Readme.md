@@ -32,35 +32,34 @@ project_root/
 
 The SAC algorithm optimizes a stochastic policy \$\pi\_\theta(a|s)\$ by maximizing the expected return plus an entropy term:
 
-$
+```math
 J(\pi) = \sum_{t=0}^T \mathbb{E}_{(s_t,a_t)\sim\rho_\pi} \left[ r(s_t, a_t) + \alpha \mathcal{H}(\pi(\cdot|s_t)) \right]
-$
-
+```
 where \$\mathcal{H}(\pi(\cdot|s\_t)) = -\mathbb{E}\_{a\_t\sim\pi}\[ \log \pi(a\_t|s\_t)]\$ is the policy entropy, and \$\alpha\$ is the temperature parameter (entropy coefficient).
 
 #### Critic (Q-function) update:
 
-$
+```math
 J_Q(\theta) = \mathbb{E}_{(s_t,a_t)\sim D} \left[ \frac{1}{2} \left( Q_\theta(s_t,a_t) - \left( r_t + \gamma (1-d_t) V_{\bar{\theta}}(s_{t+1}) \right) \right)^2 \right]
-$
+```
 
 #### Value function:
 
-$
+```math
 V_{\bar{\theta}}(s_t) = \mathbb{E}_{a_t \sim \pi_\phi} \left[ Q_{\bar{\theta}}(s_t, a_t) - \alpha \log \pi_\phi(a_t|s_t) \right]
-$
+```
 
 #### Policy update:
 
-$
+```math
 J_\pi(\phi) = \mathbb{E}_{s_t \sim D, a_t \sim \pi_\phi} \left[ \alpha \log \pi_\phi(a_t|s_t) - Q_\theta(s_t, a_t) \right]
-$
+```
 
 #### Temperature (Alpha) update:
 
-$
+```math
 J(\alpha) = \mathbb{E}_{a_t \sim \pi_\phi} \left[ -\alpha \log \pi_\phi(a_t|s_t) - \alpha \mathcal{H}_{target} \right]
-$
+```
 
 ### 1.2. Reward Function
 
